@@ -1,0 +1,8 @@
+flask
+flask_restful
+flask_cors
+pysqlite3
+pyvi
+nltk
+requests
+lxml
