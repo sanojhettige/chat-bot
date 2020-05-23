@@ -36,7 +36,7 @@
                     if(res['content']['ti_le'] >= 0.3){
                         response_bot = res['content']['answer'];
                     }else{
-                        response_bot = 'Are you asking "'+ res['content']['question'] +'" <br>';
+                        response_bot = 'Did you mean "'+ res['content']['question'] +'" <br>';
                         response_bot += res['content']['answer'];
                     }
                 }else{
