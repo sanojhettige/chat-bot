@@ -389,7 +389,7 @@ ul li{
   position: relative;
   margin: 8px 0 15px 0;
   padding: 8px 10px;
-  max-width: 60%;
+  max-width: 80%;
   display: block;
   word-wrap: break-word;
   border-radius: 3px;
@@ -416,14 +416,18 @@ ul li{
   top: 0;
 }
 
-.chat .chat_converse .chat_msg_item.chat_msg_item_admin .chat_avatar {
+.chat .chat_converse .chat_msg_item.chat_msg_item_bot .chat_avatar {
   left: -52px;
   background: rgba(0, 0, 0, 0.03);
+  width: 40px;
+  height: 40px;
 }
 
 .chat .chat_converse .chat_msg_item.chat_msg_item_user .chat_avatar {
   right: -52px;
   background: rgba(0, 0, 0, 0.6);
+  width: 40px;
+  height: 40px;
 }
 
 .chat .chat_converse .chat_msg_item .chat_avatar, .chat_avatar img{
@@ -433,25 +437,36 @@ ul li{
   border-radius: 50%;
 }
 
-.chat .chat_converse .chat_msg_item.chat_msg_item_admin {
+.chat .chat_converse .chat_msg_item.chat_msg_item_bot {
   margin-left: 60px;
   float: left;
-  background: rgba(0, 0, 0, 0.03);
-  color: #666;
+  background: rgba(87, 113, 164);
+  color: #fff;
 }
 
 .chat .chat_converse .chat_msg_item.chat_msg_item_user {
   margin-right: 20px;
   float: right;
-  background: #42a5f5;
+  background: #8490A8;
   color: #eceff1;
+  right: 35px;
 }
 
-.chat .chat_converse .chat_msg_item.chat_msg_item_admin:before {
+.chat .chat_converse .chat_msg_item.chat_msg_item_bot:before {
   content: '';
   position: absolute;
   top: 15px;
   left: -12px;
+  z-index: 998;
+  border: 6px solid transparent;
+  border-right-color: rgba(255, 255, 255, .4);
+}
+
+.chat .chat_converse .chat_msg_item.chat_msg_item_user:before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: -12px;
   z-index: 998;
   border: 6px solid transparent;
   border-right-color: rgba(255, 255, 255, .4);
@@ -661,7 +676,7 @@ strong.chat_time {
     width: 300px;
   }
   .chat_field {
-    width: 65%;
+    width: 95%;
   }
 }
 /* TABLETS PORTRAIT */
@@ -671,7 +686,7 @@ strong.chat_time {
     width: 300px;
   }
   .chat_field {
-    width: 65%;
+    width: 95%;
   }
 }
 /* TABLET LANDSCAPE / DESKTOP */
@@ -681,7 +696,7 @@ strong.chat_time {
     width: 300px;
   }
   .chat_field {
-    width: 65%;
+    width: 95%;
   }
 }
 /*Color Options*/
@@ -759,11 +774,14 @@ strong.chat_time {
   color: #bbb;
 }
 
+.bot_closer {
+  cursor: pointer;
+}
 .bot_opener {
   cursor: pointer;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 20%;
+  left: 85%;
 }
 .bot_opener_rec_1 {
   filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.161));
@@ -881,6 +899,9 @@ strong.chat_time {
   transform: matrix(1,0,0,1,0,0);
 }
 
+svg {
+    overflow: visible !important;
+}
 
 .bot_chat_header_icon {
     position: absolute;
@@ -980,4 +1001,15 @@ strong.chat_time {
     left: 3.626px;
     top: -12px;
     transform: matrix(1,0,0,1,0,0);
+  }
+
+  .default-question {
+    background-color: #FFF;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 1px;
+  }
+
+  .default-question a {
+    text-decoration: none !important;
   }

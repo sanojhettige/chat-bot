@@ -14,9 +14,10 @@
 
     hideChat(0);
 
-	$('.bot_opener').click(function() {
+	$('.bot_opener, .bot_closer').click(function() {
 	  toggleFab();
 	});
+
 
 
 	//Toggle chat and links

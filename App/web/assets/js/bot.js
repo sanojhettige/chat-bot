@@ -1,3 +1,4 @@
+    let unknownQCount = 0;
     /*================================
     Scroll to last message
     ==================================*/
@@ -22,7 +23,7 @@
         if(message){
             if(!firstMessage) {
                 $('.direct-chat-messages').append('<div class="chat_msg_item chat_msg_item_user">\
-                    <img class="chat_avatar" src="assets/images/avatar.png" alt="Image">\
+                    <img class="chat_avatar" src="assets/images/avatar.png" alt="User">\
                     <div class="direct-chat-text">\
                     '+ message +'\
                     </div>\
@@ -40,10 +41,15 @@
                         response_bot += res['content']['answer'];
                     }
                 }else{
-                    response_bot = "Sorry, the bot doesn't get what you said";
+                    response_bot = "Sorry, the bot doesn't get what you said.";
+                    unknownQCount++;
+                    if(unknownQCount > 0) {
+                        response_bot = "Questions I can answer for you <br/>";
+                        response_bot += renderDefaultQuestions();
+                    }
                 }
-                $('.direct-chat-messages').append('<div class="chat_msg_item chat_msg_item_admin">\
-                    <img class="chat_avatar" src="assets/images/bot.png" alt="Image">\
+                $('.direct-chat-messages').append('<div class="chat_msg_item chat_msg_item_bot">\
+                    <img class="chat_avatar" src="assets/images/bot.png" alt="Bot">\
                     <div class="direct-chat-text">\
                     '+ response_bot +'\
                     </div>\
@@ -53,6 +59,27 @@
             scrollbottom();
         }
     }
+
+    /*================================
+    Show default questions
+    ================================*/
+    function renderDefaultQuestions() {
+        const questions = ["What type of courses Esoft conduct ?","Is Esoft government funding institute ?","How many branches esoft has ?","Is Esoft UGC Approved ?"];
+        let content = '';
+        questions.forEach(function(ques) {
+            content += '<div class="default-question"><a href="#" data-toggle="modal" class="send-default-question" q="'+ques+'">'+ques+'<a/></div>';
+        });
+
+        return content;
+    }
+
+    /*================================
+    Send default message
+    ================================*/
+    $(document.body).on('click', '.send-default-question' ,function(){
+        const message = $(this).attr('q');
+        doGetBotResponse(message);
+    });
 
     /*================================
     Send Message
