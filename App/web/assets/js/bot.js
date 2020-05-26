@@ -21,8 +21,8 @@
     function doGetBotResponse(message, firstMessage) {
         if(message){
             if(!firstMessage) {
-                $('.direct-chat-messages').append('<div class="direct-chat-msg right">\
-                    <img class="direct-chat-img" src="assets/images/avatar.png" alt="Image">\
+                $('.direct-chat-messages').append('<div class="chat_msg_item chat_msg_item_user">\
+                    <img class="chat_avatar" src="assets/images/avatar.png" alt="Image">\
                     <div class="direct-chat-text">\
                     '+ message +'\
                     </div>\
@@ -42,8 +42,8 @@
                 }else{
                     response_bot = "Sorry, the bot doesn't get what you said";
                 }
-                $('.direct-chat-messages').append('<div class="direct-chat-msg">\
-                    <img class="direct-chat-img" src="assets/images/bot.png" alt="Image">\
+                $('.direct-chat-messages').append('<div class="chat_msg_item chat_msg_item_admin">\
+                    <img class="chat_avatar" src="assets/images/bot.png" alt="Image">\
                     <div class="direct-chat-text">\
                     '+ response_bot +'\
                     </div>\
