@@ -67,7 +67,7 @@
         const questions = ["What type of courses Esoft conduct ?","Is Esoft government funding institute ?","How many branches esoft has ?","Is Esoft UGC Approved ?"];
         let content = '';
         questions.forEach(function(ques) {
-            content += '<div class="default-question"><a href="#" data-toggle="modal" class="send-default-question" q="'+ques+'">'+ques+'<a/></div>';
+            content += '<div class="default-question"><a href="#" data-toggle="modal" class="color-white send-default-question" q="'+ques+'">'+ques+'<a/></div>';
         });
 
         return content;
