@@ -43,7 +43,7 @@
                 }else{
                     response_bot = "Sorry, the bot doesn't get what you said.";
                     unknownQCount++;
-                    if(unknownQCount > 0) {
+                    if(unknownQCount > 3) {
                         response_bot = "Questions I can answer for you <br/>";
                         response_bot += renderDefaultQuestions();
                     }
